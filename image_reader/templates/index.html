@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="text-center my-3">
+    <h1>OCR - Grupa 9</h1>
+</div>
+<hr>
+<div class="container my-3">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Wybierz zdjęcie i język tekstu:</h5>
+          <form action="read" method="post" enctype="multipart/form-data" id="imageForm">
+            <div class="form-group">
+              <input type="file" name="file" class="form-control-file" multiple="" data-max-length="20" id="uploadImage" accept="image/*" required>
+            </div>
+            <br>
+            <select name="lang" id="lang">
+                <option value="pol"> polski </option>
+                <option value="eng"> angielski </option>
+            </select>
+            <br>
+            <br>
+            <div class="d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary" form="imageForm">Gotowe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="text-center my-3">
+    <h2>Odczytany tekst:</h2>
+    <div class="text-justify" id="ocrText"></div>
+</div>
+<div class="text-center my-3">
+    <form action="{{ url_for('download_pdf') }}" method="post" target="_blank" id="downloadPDF">
+        <button type="submit" class="btn btn-primary" form="downloadPDF">Pobierz PDF</button>
+    </form>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script src="../static/scripts/index.js"> </script>
+{% endblock scripts %}
