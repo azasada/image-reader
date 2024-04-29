@@ -25,27 +25,6 @@
   </head>
 
   <body>
-    <header class="site-header">
-      <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container-fluid">
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#menuItems"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="menuItems">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a class="nav-link" id="theme-switch" href="#">LIGHT THEME</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
     <main class="container" role="main">
       <div class="row">
         <div class="col-md">{% block content %} {% endblock content %}</div>
@@ -56,7 +35,6 @@
       integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
       crossorigin="anonymous"
     ></script>
-    <script src="../static/scripts/layout.js"></script>
     {% block scripts %} {% endblock scripts %}
   </body>
 </html>
