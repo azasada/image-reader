@@ -6,6 +6,8 @@ $(document).on("submit", "#imageForm", function(e) {
         formData.append("file", images[i]);
     }
     formData.append("lang", $("#lang").val());
+    formData.append("crop", $('input[name="crop"]:checked').val());
+    formData.append("spellcheck",$('input[name="spellcheck"]:checked').val());
     // console.log(formData);
 
     $.ajax({
