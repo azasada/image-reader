@@ -6,7 +6,9 @@ $(document).on("submit", "#imageForm", function(e) {
         formData.append("file", images[i]);
     }
     formData.append("lang", $("#lang").val());
-    // console.log(formData);
+    formData.append("crop", $('input[name="crop"]:checked').val());
+    formData.append("spellcheck", $('input[name="spellcheck"]:checked').val());
+    document.getElementById("submitButton").innerText = "Czekaj...";
 
     $.ajax({
         type: "POST",
@@ -17,6 +19,8 @@ $(document).on("submit", "#imageForm", function(e) {
         processData: false,
         success: function(data) {
             document.getElementById("ocrText").innerText = data["text"];
+            document.getElementById("showAfter").style.display = "";
+            document.getElementById("submitButton").innerText = "Odczytaj";
         },
     });
 });

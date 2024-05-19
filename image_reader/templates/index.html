@@ -21,8 +21,11 @@
             </select>
             <br>
             <br>
+            Automatyczne kadrowanie: <input type="checkbox" name="crop" id="crop" value="on"> <br>
+            Sprawdzanie pisowni: <input type="checkbox" name="spellcheck" id="spellcheck" value="on">
+
             <div class="d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary" form="imageForm">Gotowe</button>
+                <button id="submitButton" type="submit" class="btn btn-primary" form="imageForm">Odczytaj</button>
             </div>
           </form>
         </div>
@@ -30,14 +33,16 @@
     </div>
   </div>
 </div>
-<div class="text-center my-3">
-    <h2>Odczytany tekst:</h2>
-    <div class="text-justify" id="ocrText"></div>
-</div>
-<div class="text-center my-3">
-    <form action="{{ url_for('download_pdf') }}" method="post" target="_blank" id="downloadPDF">
-        <button type="submit" class="btn btn-primary" form="downloadPDF">Pobierz PDF</button>
-    </form>
+<div id="showAfter" style="display:none;" class="text-center my-3">
+    <div class="text-center my-3">
+        <h2>Odczytany tekst:</h2>
+        <div class="text-justify" id="ocrText"></div>
+    </div>
+    <div class="text-center my-3">
+        <form action="{{ url_for('download_pdf') }}" method="post" target="_blank" id="downloadPDF">
+            <button type="submit" class="btn btn-primary" form="downloadPDF">Pobierz PDF</button>
+        </form>
+    </div>
 </div>
 {% endblock content %}
 
